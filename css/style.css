@@ -1,3 +1,8 @@
+:root {
+	--female-color: #f39cde;
+	--male-color: #16acf7;
+}
+
 html,
 body,
 div,
@@ -99,8 +104,10 @@ body {
 }
 
 body {
-	font-family: 'Roboto', sans-serif;
-	color: #83b0b9;
+	font-family: "Raleway", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+	font-weight: 400;
 }
 
 .successalert {
@@ -210,23 +217,9 @@ _:-ms-fullscreen,
 }
 
 .main-page-area {
-	overflow-y: auto;
+	overflow-y: scroll;
 	width: 100%;
 	height: calc(100vh - 84px);
-}
-
-.main-page-area::-webkit-scrollbar {
-	width: 10px;
-	background-color: #F5F5F5;
-}
-
-.main-page-area::-webkit-scrollbar-track {
-	border: 1px solid black;
-	background-color: #F5F5F5;
-}
-
-.main-page-area::-webkit-scrollbar-thumb {
-	background-color: #000000;	
 }
 
 .resonsive-tab {
@@ -518,12 +511,12 @@ _:-ms-fullscreen,
 
 .the-couple-data h3 {
 	text-transform: capitalize;
+	font-size: 22px;
 }
 
 .tag-line {
 	text-align: center;
-	text-transform: uppercase;
-	margin-top: 11px;
+	margin-top: 20px;
 }
 
 .inner-data {
@@ -590,12 +583,14 @@ _:-ms-fullscreen,
 }
 
 .page-title h2 {
-	color: #000;
+	color: #ea3e23;
 	position: relative;
 	padding: 35px 0px 15px;
 	display: inline-block;
 	text-align: center;
 	margin-top: 15px;
+	font-size: 36px;
+	font-weight: 500;
 }
 
 .page-title h2:before {
@@ -635,8 +630,12 @@ _:-ms-fullscreen,
 	background-color: #03c0cc;
 }
 
-.bride-color {
-	background-color: #f0394d;
+.female-color {
+	background-color: var(--female-color);
+}
+
+.male-color {
+	background-color: var(--male-color);
 }
 
 .the-couple {
@@ -644,6 +643,14 @@ _:-ms-fullscreen,
 	padding: 24px;
 	background-color: #fff;
 	border-radius: 12px;
+}
+
+.the-couple.female{
+	color: #f39cde;
+}
+
+.the-couple.male{
+	color: #16acf7;
 }
 
 .the-people {
@@ -661,8 +668,13 @@ _:-ms-fullscreen,
 	position: absolute;
 }
 
+.the-couple-title {
+	font-weight: 600;
+}
+
 .the-couple-title p span {
 	text-transform: uppercase;
+	letter-spacing: 2px !important;
 }
 
 .cat-title {
@@ -776,7 +788,9 @@ _:-ms-fullscreen,
 
 .the-couple-img img {
 	overflow: hidden;
-	width: 100%;
+	width: 250px;
+	height: 250px;
+	object-fit: cover;
 }
 
 .about-the-couple {
@@ -1094,6 +1108,7 @@ _:-ms-fullscreen,
 	text-transform: uppercase;
 	letter-spacing: 3px;
 	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 .ceremony-detail h4 {
@@ -1381,10 +1396,10 @@ _:-ms-fullscreen,
 }
 
 .logo-s2 {
-	width: 16%;
+	max-width: 100px;
+	width: auto;
+	height: 100%;
 	display: inline-block;
-	vertical-align: top;
-	padding: 21px 0px;
 }
 
 .ver-menu,
@@ -1398,7 +1413,9 @@ _:-ms-fullscreen,
 }
 
 .logo-s2 img {
-	max-width: 100%;
+	width: auto;
+	object-fit: cover;
+	height: 100%;
 }
 
 .menubar-s2 svg {
@@ -1733,6 +1750,19 @@ h2.resp-accordion:first-child {
 	width: 100%;
 }
 
+.couple-name h1 {
+	font-family: "Edu AU VIC WA NT Pre", cursive;
+	font-size: 96px;
+}
+
+.couple-name h1.male {
+	color: #16acf7;
+}
+
+.couple-name h1.female {
+	color: #f39cde;
+}
+
 @media screen and (min-width: 2000px) and (max-width: 2560px) {
 	.timeline>li>.timeline-badge {
 		/*right: -63px;*/
@@ -1909,7 +1939,7 @@ h2.resp-accordion:first-child {
 		width: 100%;
 		padding: 20px;
 		background-color: #fff;
-		
+
 	}
 
 	.the-couple__content {
@@ -2185,6 +2215,11 @@ h2.resp-accordion:first-child {
 
 	.logo-responsive {
 		padding: 3px 0px;
+	}
+
+	.logo-responsive img{
+		height: 48px;
+		object-fit: cover;
 	}
 
 	.timeline>li>.timeline-badge {
@@ -2630,6 +2665,9 @@ h2.resp-accordion:first-child {
 }
 
 @media screen and (max-width: 767px) {
+	.main-page-area {
+		height: 100vh
+	}
 	.navbar-nav {
 		margin: 0 !important;
 	}
@@ -2669,6 +2707,13 @@ h2.resp-accordion:first-child {
 
 	.wedding-person .couple-name span {
 		font-size: 37px;
+	}
+	.pagination-button {
+		display: none !important;
+	}
+
+	.about-the-people p {
+		margin-bottom: 20px;
 	}
 }
 
@@ -3715,7 +3760,7 @@ h2.resp-accordion:first-child {
 	text-align: center;
 	padding: 30px 10px;
 	border-radius: 100%;
-	border: 3px solid #03c0cc;
+	border: 3px solid #fff;
 }
 
 @media (max-width: 991px) {
@@ -3732,10 +3777,12 @@ h2.resp-accordion:first-child {
 }
 
 #clock .box>div {
-	font-size: 30px;
+	font-size: 24px;
 	margin-bottom: 0.1em;
 	line-height: 1em;
 	text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.35);
+	color: var(--male-color);
+	font-weight: 600;
 }
 
 @media (max-width: 1199px) {
@@ -3749,9 +3796,11 @@ h2.resp-accordion:first-child {
 }
 
 #clock .box span {
-	font-size: 16px;
+	font-size: 14px;
 	text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.35);
 	font-weight: normal;
+	color: var(--female-color);
+	font-weight: 600;
 }
 
 @media (max-width: 767px) {
@@ -3805,12 +3854,15 @@ h2.resp-accordion:first-child {
 }
 
 .pagination-button {
-	display: none;
 	position: fixed;
-	width: 50%;
-	right: 0;
-	bottom: 0;
-	justify-content: end;
+	right: 0px;
+	bottom: 0px;
+}
+
+.panination-flex {
+	display: flex;
+	margin-right: 40px;
+	margin-bottom: 20px;
 }
 
 .pagination-button a {
@@ -3955,6 +4007,11 @@ h2.resp-accordion:first-child {
 	font-weight: 300;
 	text-align: center;
 	margin: 1.3rem 0 0;
+	font-size: 14px;
+}
+
+.parent-info {
+	margin-bottom: 8px;
 }
 
 .parent-info .parent-name {
@@ -4138,7 +4195,6 @@ label#content-error {
 
 .ceremony-section .ceremony-detail .tooltip-dresscode {
 	width: 130px;
-	font-family: sans-serif;
 	font-size: 14px;
 	background-color: rgb(255 255 255);
 	border: 1px solid #eee;
