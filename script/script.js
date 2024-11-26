@@ -376,7 +376,7 @@ if ($("#wish-form").length) {
                     $("#loader").hide();
                     if (res.success) {
                         $('.wish-box').scrollTop(0);
-                        $('.wish-box').prepend('<div class="wish-box-item bg"><strong>' + $(form).find("input[name='name']").val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;") + '</strong><p>' + $(form).find("textarea[name='content']").val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;") + '</p></div>');
+                        $('.wish-box').prepend('<div class="wish-box-item bg"><strong>' + $(form).find("input[name='name']").val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;") + '</strong><p>' + $(form).find("textarea[name='message']").val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;") + '</p></div>');
                         $("#success").html(res.message).slideDown("slow");
                         setTimeout(function () {
                             $("#success").slideUp("slow");
@@ -583,3 +583,17 @@ $(document).on('click', '.btn-see-more-gallery', function () {
         index: parseInt(indexNumber)
     });
 });
+
+
+const checkScreenSize = () => {
+    if (window.matchMedia('(max-width: 767px)').matches) {
+        let imgforMobile = $('.bg-cover-full').data('bg-mobile');
+        $('.bg-cover-full').css('background-image', 'url(' + imgforMobile + ')');
+    }
+};
+
+// Kiểm tra khi load trang
+checkScreenSize();
+
+// Kiểm tra khi resize cửa sổ
+window.addEventListener('resize', checkScreenSize);
