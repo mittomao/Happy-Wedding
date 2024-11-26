@@ -21,30 +21,30 @@ $(document).on('ready', function () {
         }, 500);
         resetPagination();
     });
-    
+
     setTimeout(function () {
-    	$('.pagination-button').css({
-    		'display': 'flex',
-    		'bottom': $(".bii-player").css('bottom'),
-    		'right': $(".bii-player").css('left'),
-    	});
-    	
-    	$(".pagination-button .pa-previous").click(function(){
-    		let previousMenu = $('ul.dl-menu li.hover_active').prev('li');
-    		
-    		if(previousMenu.length <= 0) {return false};
-    		previousMenu.click();
-    		resetPagination();
-    		
-    	});
-    	
-    	$(".pagination-button .pa-next").click(function(){
-    		let nextMenu = $('ul.dl-menu li.hover_active').next('li');
-    		if(nextMenu.length <= 0) {return false};
-    		nextMenu.click();
-    		resetPagination();
-    		
-    	});
+        $('.pagination-button').css({
+            'display': 'flex',
+            'bottom': $(".bii-player").css('bottom'),
+            'right': $(".bii-player").css('left'),
+        });
+
+        $(".pagination-button .pa-previous").click(function () {
+            let previousMenu = $('ul.dl-menu li.hover_active').prev('li');
+
+            if (previousMenu.length <= 0) { return false };
+            previousMenu.click();
+            resetPagination();
+
+        });
+
+        $(".pagination-button .pa-next").click(function () {
+            let nextMenu = $('ul.dl-menu li.hover_active').next('li');
+            if (nextMenu.length <= 0) { return false };
+            nextMenu.click();
+            resetPagination();
+
+        });
     }, 1300);
 
     /*Keyur script ends*/
@@ -78,44 +78,44 @@ $(document).on('ready', function () {
             $('.hover-menu').css('-moz-transform', 'translate3d(0px, -400px, 0px)').css('-webkit-transform', 'translate3d(0px, -400px, 0px)').css('-ms-transform', 'translate3d(0px, -400px, 0px)').css('-o-transform', 'translate3d(0px, -400px, 0px)').css('transform', 'translate3d(0px, -400px, 0px)');
         }, 200);
     });
-	
-	$(document).on('click', '.crypto-item', function(){
-		let parent = $(this).parents('.donate-card');
-		parent.find('.cryptos-box-view').show();
-		parent.find('.cryptos-box-view .coin-img').html('<img src="'+$(this).data('img')+'" />');
-		parent.find('.cryptos-box-view .coin-id').html($(this).data('id'));
-		parent.find('.cryptos-box-view .coin-address').html($(this).data('address'));
-		parent.find('.cryptos-box-view .coin-qr-code').html('').qrcode({width: 160,height: 160,text: $(this).data('address')});
-	});
-	
-	$(document).on('click', '.cryptos-box-view-close', function(){
-		let parent = $(this).parents('.donate-card');
-		parent.find('.cryptos-box-view').hide();
-	});
+
+    $(document).on('click', '.crypto-item', function () {
+        let parent = $(this).parents('.donate-card');
+        parent.find('.cryptos-box-view').show();
+        parent.find('.cryptos-box-view .coin-img').html('<img src="' + $(this).data('img') + '" />');
+        parent.find('.cryptos-box-view .coin-id').html($(this).data('id'));
+        parent.find('.cryptos-box-view .coin-address').html($(this).data('address'));
+        parent.find('.cryptos-box-view .coin-qr-code').html('').qrcode({ width: 160, height: 160, text: $(this).data('address') });
+    });
+
+    $(document).on('click', '.cryptos-box-view-close', function () {
+        let parent = $(this).parents('.donate-card');
+        parent.find('.cryptos-box-view').hide();
+    });
 
 
-   $(window).load(function () {
-       if ($.find('.gridlayout').length) {
-           $('.gridlayout').isotope({
-               itemSelector: '.grid-item',
-               masonry: {
-                   columnWidth: '.grid-item'
-               }
-           });
-       }
-   });
+    $(window).load(function () {
+        if ($.find('.gridlayout').length) {
+            $('.gridlayout').isotope({
+                itemSelector: '.grid-item',
+                masonry: {
+                    columnWidth: '.grid-item'
+                }
+            });
+        }
+    });
 
-   /*Timer for wedding page*/
-   if ($.find('#example').length) {
-       $('#example').countdown({
-           date: $('.countdown').data('date'), //Enter Target date & time - MM/DD/YYYY hh:mm:ss
-           offset: +5.5,
-           day: 'Day',
-           days: 'Days'
-       }, function () {
-       });
-	}
-	
+    /*Timer for wedding page*/
+    if ($.find('#example').length) {
+        $('#example').countdown({
+            date: $('.countdown').data('date'), //Enter Target date & time - MM/DD/YYYY hh:mm:ss
+            offset: +5.5,
+            day: 'Day',
+            days: 'Days'
+        }, function () {
+        });
+    }
+
     $('.hamburger').on('click', function () {
         if ($('.navbar-fixed-top').css('right') == '-150px') {
             $('.navbar-fixed-top').animate({ right: '0px' }, 'slow');
@@ -131,10 +131,8 @@ $(document).on('ready', function () {
             if (evt.target.class == 'hamburger') {
                 return;
             }
-            if ($(evt.target).closest('.hamburger').length)
-            { return; }
-            else
-            {
+            if ($(evt.target).closest('.hamburger').length) { return; }
+            else {
                 if ($('.navbar-fixed-top').css('overflow-y') == 'scroll') {
                     $('.navbar-fixed-top').animate({ right: '-150px' }, 'slow');
                 }
@@ -221,42 +219,42 @@ $(document).on('ready', function () {
         autoplay: true,
         touchMove: false,
         responsive: [
-  {
-      breakpoint: 981,
-      settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        //   arrows: false
-      }
-  },
+            {
+                breakpoint: 981,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    //   arrows: false
+                }
+            },
 
-   {
-       breakpoint: 769,
-       settings: {
-           slidesToShow: 1,
-           slidesToScroll: 1,
-        //    arrows: false
-       }
-   },
-    {
-        breakpoint: 640,
-        settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            // arrows: false
-        }
-    },
-   {
-       breakpoint: 361,
-       settings: {
-           slidesToShow: 1,
-           slidesToScroll: 1,
-        //    arrows: false
-       }
-   }
-   // You can unslick at a given breakpoint now by adding:
-   // settings: 'unslick'
-   // instead of a settings object
+            {
+                breakpoint: 769,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    //    arrows: false
+                }
+            },
+            {
+                breakpoint: 640,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    // arrows: false
+                }
+            },
+            {
+                breakpoint: 361,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    //    arrows: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: 'unslick'
+            // instead of a settings object
         ]
     });
 
@@ -270,35 +268,35 @@ $(document).on('ready', function () {
         arrows: false,
         touchMove: false,
         responsive: [
-          {
-              breakpoint: 1025,
-              settings: {
-                  slidesToShow: 1,
-                  slidesToScroll: 1,
-                  infinite: true,
-                  dots: false,
-                //   arrows: false
-              }
-          },
-          {
-              breakpoint: 769,
-              settings: {
-                //   arrows: false,
-                  slidesToShow: 1,
-                  slidesToScroll: 1
-              }
-          },
-          {
-              breakpoint: 481,
-              settings: {
-                  slidesToShow: 1,
-                  slidesToScroll: 1,
-                //   arrows: false
-              }
-          }
-          // You can unslick at a given breakpoint now by adding:
-          // settings: 'unslick'
-          // instead of a settings object
+            {
+                breakpoint: 1025,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                    //   arrows: false
+                }
+            },
+            {
+                breakpoint: 769,
+                settings: {
+                    //   arrows: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 481,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    //   arrows: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: 'unslick'
+            // instead of a settings object
         ]
     });
 
@@ -359,48 +357,47 @@ if ($("#wish-form").length) {
                 email: 'Địa chỉ email không hợp lệ.'
             }
         },
-        
-        errorPlacement: function(error, element) {
-            if (element.attr("name") == "content" ) {
-              error.insertAfter("#wish-form .vitualTextarea");
+
+        errorPlacement: function (error, element) {
+            if (element.attr("name") == "content") {
+                error.insertAfter("#wish-form .vitualTextarea");
             } else {
-              error.insertAfter(element);
+                error.insertAfter(element);
             }
         },
         submitHandler: function (form) {
             $("#loader").css("display", "inline-block");
-            alert("Cảm ơn bạn đã gửi những lời lúc tới vợ chồng mình. Trân trọng cảm ơn!");
 
-            // $.ajax({
-            //     type: "POST",
-            //     url: "/wish",
-            //     data: $(form).serialize(),
-            //     success: function (res) {
-            //         $( "#loader").hide();
-            //         if(!res.error){
-            //             $('.wish-box').scrollTop(0);
-            //             $('.wish-box').prepend('<div class="wish-box-item bg"><strong>'+$(form).find("input[name='name']").val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;")+'</strong><p>'+$(form).find("textarea[name='content']").val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;")+'</p></div>');
-            //             $( "#success").html(res.message).slideDown( "slow" );
-            //             setTimeout(function() {
-            //             $( "#success").slideUp( "slow" );
-            //             }, 5000);
-            //         }else{
-            //             $( "#error").html(res.message).slideDown( "slow" );
-            //             setTimeout(function() {
-            //             $( "#error").slideUp( "slow" );
-            //             }, 5000);
-            //         }
+            $.ajax({
+                type: "POST",
+                url: "https://wainiidev.online/api/sendemail",
+                data: $(form).serialize(),
+                success: function (res) {
+                    $("#loader").hide();
+                    if (res.success) {
+                        $('.wish-box').scrollTop(0);
+                        $('.wish-box').prepend('<div class="wish-box-item bg"><strong>' + $(form).find("input[name='name']").val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;") + '</strong><p>' + $(form).find("textarea[name='content']").val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;") + '</p></div>');
+                        $("#success").html(res.message).slideDown("slow");
+                        setTimeout(function () {
+                            $("#success").slideUp("slow");
+                        }, 5000);
+                    } else {
+                        $("#error").html(res.message).slideDown("slow");
+                        setTimeout(function () {
+                            $("#error").slideUp("slow");
+                        }, 5000);
+                    }
 
-            //         form.reset();
-            //     },
-            //     error: function() {
-            //         $( "#loader").hide();
-            //         $( "#error").slideDown( "slow" );
-            //         setTimeout(function() {
-            //         $( "#error").slideUp( "slow" );
-            //         }, 5000);
-            //     }
-            // });
+                    form.reset();
+                },
+                error: function () {
+                    $("#loader").hide();
+                    $("#error").slideDown("slow");
+                    setTimeout(function () {
+                        $("#error").slideUp("slow");
+                    }, 5000);
+                }
+            });
             return false;
         }
 
@@ -410,179 +407,179 @@ if ($("#wish-form").length) {
 /*------------------------------------------
         = COUNTDOWN CLOCK
     -------------------------------------------*/
-    if ($("#clock").length) {
-        function timeElapse(date){
-            var current = Date();
-            var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
-            var days = Math.floor(seconds / (3600 * 24));
-            if (days < 10) {
-                days = "0" + days;
-            }
-            seconds = seconds % (3600 * 24);
-            var hours = Math.floor(seconds / 3600);
-            if (hours < 10) {
-                hours = "0" + hours;
-            }
-            seconds = seconds % 3600;
-            var minutes = Math.floor(seconds / 60);
-            if (minutes < 10) {
-                minutes = "0" + minutes;
-            }
-            seconds = seconds % 60;
-            if (seconds < 10) {
-                seconds = "0" + seconds;
-            }
-            var html = '<div class="box"><div>' + days + '</div> <span>'+ $('#clock').data('text-day') +'</span></div><div class="box"><div>' + hours + '</div> <span>'+ $('#clock').data('text-hour') +'</span> </div><div class="box"><div>' + minutes + '</div> <span>'+ $('#clock').data('text-minute') +'</span> </div><div class="box"><div>' + seconds + '</div> <span>'+ $('#clock').data('text-second') +'</span></div>';
-            $('#clock').html(html);
+if ($("#clock").length) {
+    function timeElapse(date) {
+        var current = Date();
+        var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
+        var days = Math.floor(seconds / (3600 * 24));
+        if (days < 10) {
+            days = "0" + days;
         }
-		var time = $('#clock').data('date');
-        $('#clock').countdown(time.replace(/-/g,'/'), function(event) {
-            if(event.type == 'stoped'){
-                var together = new Date($('#clock').data('date'));           
-                together.setHours(0);                           
-                together.setMinutes(0);             
-                together.setSeconds(0);                 
-                together.setMilliseconds(0);
-                setInterval(function() {
-                    timeElapse(together);
-                }, 1000);
-            }else{
-                var $this = $(this).html(event.strftime(''
-                + '<div class="box"><div>%D</div> <span>'+ $('#clock').data('text-day') +'</span> </div>'
-                + '<div class="box"><div>%H</div> <span>'+ $('#clock').data('text-hour') +'</span> </div>'
-                + '<div class="box"><div>%M</div> <span>'+ $('#clock').data('text-minute') +'</span> </div>'
-                + '<div class="box"><div>%S</div> <span>'+ $('#clock').data('text-second') +'</span> </div>'));
+        seconds = seconds % (3600 * 24);
+        var hours = Math.floor(seconds / 3600);
+        if (hours < 10) {
+            hours = "0" + hours;
+        }
+        seconds = seconds % 3600;
+        var minutes = Math.floor(seconds / 60);
+        if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+        seconds = seconds % 60;
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+        var html = '<div class="box"><div>' + days + '</div> <span>' + $('#clock').data('text-day') + '</span></div><div class="box"><div>' + hours + '</div> <span>' + $('#clock').data('text-hour') + '</span> </div><div class="box"><div>' + minutes + '</div> <span>' + $('#clock').data('text-minute') + '</span> </div><div class="box"><div>' + seconds + '</div> <span>' + $('#clock').data('text-second') + '</span></div>';
+        $('#clock').html(html);
+    }
+    var time = $('#clock').data('date');
+    $('#clock').countdown(time.replace(/-/g, '/'), function (event) {
+        if (event.type == 'stoped') {
+            var together = new Date($('#clock').data('date'));
+            together.setHours(0);
+            together.setMinutes(0);
+            together.setSeconds(0);
+            together.setMilliseconds(0);
+            setInterval(function () {
+                timeElapse(together);
+            }, 1000);
+        } else {
+            var $this = $(this).html(event.strftime(''
+                + '<div class="box"><div>%D</div> <span>' + $('#clock').data('text-day') + '</span> </div>'
+                + '<div class="box"><div>%H</div> <span>' + $('#clock').data('text-hour') + '</span> </div>'
+                + '<div class="box"><div>%M</div> <span>' + $('#clock').data('text-minute') + '</span> </div>'
+                + '<div class="box"><div>%S</div> <span>' + $('#clock').data('text-second') + '</span> </div>'));
+        }
+    });
+}
+
+$(document).on('click', '.calendar-button-custom-click', function () {
+    $(this).parent().parent().find('.calendar-button .atcb-click').click();
+});
+
+
+/*------------------------------------------
+    = POPUP VIDEO
+-------------------------------------------*/
+if ($(".video-play-btn").length) {
+    $(".video-play-btn").on("click", function () {
+        $.fancybox({
+            href: this.href,
+            type: $(this).data("type"),
+            'title': this.title,
+            helpers: {
+                title: { type: 'inside' },
+                media: {}
+            },
+            youtube: {
+                autoplay: 1,
+            },
+
+            beforeShow: function () {
+                $(".fancybox-wrap").addClass("gallery-fancybox");
             }
         });
-    }
-    
-    $(document).on('click', '.calendar-button-custom-click', function(){
-    	$(this).parent().parent().find('.calendar-button .atcb-click').click();
+        return false
     });
-    
-    
-    /*------------------------------------------
-        = POPUP VIDEO
-    -------------------------------------------*/
-    if ($(".video-play-btn").length) {
-        $(".video-play-btn").on("click", function(){
-            $.fancybox({
-                href: this.href,
-                type: $(this).data("type"),
-                'title'         : this.title,
-                helpers     : {
-                    title : { type : 'inside' },
-                    media : {}
-                },
-                youtube: {
-		            autoplay: 1,
-		        },
+}
 
-                beforeShow : function(){
-                    $(".fancybox-wrap").addClass("gallery-fancybox");
-                }
-            });
-            return false
-        });
-    }
-    
-    $(document).on('click', '.theme-btn', function(){
-    	var dataAnimation =$(this).attr("data-animation") - 1;
-    	$('ul.dl-menu li')[dataAnimation].click();
-    	resetPagination();
-    });
-    
-    // TOUCHMOVE EVENT 
-    setTimeout(function(){
-	    let touchstartX = 0;
-	    let touchendX = 0;
-	    let touchstartY = 0;
-	    let touchendY = 0;
-	    function checkDirection() {
-		    if (touchstartX - touchendX >=15) {
-		        if(touchendY - touchstartY <= 25 && touchendY - touchstartY >= -25){
-		            let nextMenu = $('ul.dl-menu li.hover_active').next('li');
-		            if(nextMenu.length <= 0) {return false};
-		            nextMenu.click();
-		            resetPagination();
-		        }
-		    }
-		    if (touchendX - touchstartX >= 15) {
-		        if(touchendY - touchstartY <= 25 && touchendY - touchstartY >= -25){
-		            let previousMenu = $('ul.dl-menu li.hover_active').prev('li');
-		            if(previousMenu.length <= 0) {return false};
-		            previousMenu.click();
-		            resetPagination();
-		        }
-		    }  
-	    }
-	    document.addEventListener('touchstart', e => {
-		    touchstartX = e.changedTouches[0].screenX;
-		    touchstartY = e.changedTouches[0].screenY;
-	    },{passive:true});
-	
-	    document.addEventListener('touchend', e => {
-		    touchendX = e.changedTouches[0].screenX;
-		    touchendY = e.changedTouches[0].screenY;
-		    checkDirection();
-	    },{passive:true});
-    },500);
-    
-    // MOUSE EVENT
-    setTimeout(function(){
-	    let mouseDownX = 0;
-	    let mouseUpX = 0;
-	    let mouseDownY = 0;
-	    let mouseUpY = 0;
-	    function checkDirection() {
-		    if (mouseDownX - mouseUpX >=75) {
-		        if(mouseUpY - mouseDownY <= 25 && mouseUpY - mouseDownY >= -25){
-		            let nextMenu = $('ul.dl-menu li.hover_active').next('li');
-		            if(nextMenu.length <= 0) {return false};
-		            nextMenu.click();
-		            resetPagination();
-		        }
-		    }
-		    if (mouseUpX - mouseDownX >= 75) {
-		        if(mouseUpY - mouseDownY <= 25 && mouseUpY - mouseDownY >= -25){
-		            let previousMenu = $('ul.dl-menu li.hover_active').prev('li');
-		            if(previousMenu.length <= 0) {return false};
-		            previousMenu.click();
-		            resetPagination();
-		        }
-		    }  
-	    }
-	    document.addEventListener('mousedown', e => {
-		    mouseDownX = e.screenX;
-		    mouseDownY = e.screenY;
-	    },{passive:true});
-	
-	    document.addEventListener('mouseup', e => {
-            mouseUpX  = e.screenX;
-		    mouseUpY = e.screenY;
-            checkDirection();
-	    },{passive:true});
-    },500);
+$(document).on('click', '.theme-btn', function () {
+    var dataAnimation = $(this).attr("data-animation") - 1;
+    $('ul.dl-menu li')[dataAnimation].click();
+    resetPagination();
+});
 
-    $('li[data-animation="6"]').on('click',() => {
-        var lazyLoadInstance = new LazyLoad();
-        lazyLoadInstance.update();
+// TOUCHMOVE EVENT 
+setTimeout(function () {
+    let touchstartX = 0;
+    let touchendX = 0;
+    let touchstartY = 0;
+    let touchendY = 0;
+    function checkDirection() {
+        if (touchstartX - touchendX >= 15) {
+            if (touchendY - touchstartY <= 25 && touchendY - touchstartY >= -25) {
+                let nextMenu = $('ul.dl-menu li.hover_active').next('li');
+                if (nextMenu.length <= 0) { return false };
+                nextMenu.click();
+                resetPagination();
+            }
+        }
+        if (touchendX - touchstartX >= 15) {
+            if (touchendY - touchstartY <= 25 && touchendY - touchstartY >= -25) {
+                let previousMenu = $('ul.dl-menu li.hover_active').prev('li');
+                if (previousMenu.length <= 0) { return false };
+                previousMenu.click();
+                resetPagination();
+            }
+        }
+    }
+    document.addEventListener('touchstart', e => {
+        touchstartX = e.changedTouches[0].screenX;
+        touchstartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    document.addEventListener('touchend', e => {
+        touchendX = e.changedTouches[0].screenX;
+        touchendY = e.changedTouches[0].screenY;
+        checkDirection();
+    }, { passive: true });
+}, 500);
+
+// MOUSE EVENT
+setTimeout(function () {
+    let mouseDownX = 0;
+    let mouseUpX = 0;
+    let mouseDownY = 0;
+    let mouseUpY = 0;
+    function checkDirection() {
+        if (mouseDownX - mouseUpX >= 75) {
+            if (mouseUpY - mouseDownY <= 25 && mouseUpY - mouseDownY >= -25) {
+                let nextMenu = $('ul.dl-menu li.hover_active').next('li');
+                if (nextMenu.length <= 0) { return false };
+                nextMenu.click();
+                resetPagination();
+            }
+        }
+        if (mouseUpX - mouseDownX >= 75) {
+            if (mouseUpY - mouseDownY <= 25 && mouseUpY - mouseDownY >= -25) {
+                let previousMenu = $('ul.dl-menu li.hover_active').prev('li');
+                if (previousMenu.length <= 0) { return false };
+                previousMenu.click();
+                resetPagination();
+            }
+        }
+    }
+    document.addEventListener('mousedown', e => {
+        mouseDownX = e.screenX;
+        mouseDownY = e.screenY;
+    }, { passive: true });
+
+    document.addEventListener('mouseup', e => {
+        mouseUpX = e.screenX;
+        mouseUpY = e.screenY;
+        checkDirection();
+    }, { passive: true });
+}, 500);
+
+$('li[data-animation="6"]').on('click', () => {
+    var lazyLoadInstance = new LazyLoad();
+    lazyLoadInstance.update();
+});
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+});
+
+$(document).on('click', '.btn-see-more-gallery', function () {
+    let indexNumber = $(this).data('index') || 0;
+    $(this).lightGallery({
+        thumbnail: true,
+        dynamic: true,
+        dynamicEl: photoGalleries,
+        download: false,
+        autoplay: true,
+        preload: 2,
+        appendSubHtmlTo: '.lg-item',
+        index: parseInt(indexNumber)
     });
-    
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    });
-    
-    $(document).on('click', '.btn-see-more-gallery', function(){
-        let indexNumber = $(this).data('index') || 0;
-        $(this).lightGallery({
-            thumbnail: true,
-            dynamic: true,
-            dynamicEl: photoGalleries,
-            download: false,
-            autoplay: true,
-            preload: 2,
-            appendSubHtmlTo: '.lg-item',
-            index: parseInt(indexNumber)
-        });
-    });
+});
