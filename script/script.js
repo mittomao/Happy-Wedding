@@ -366,14 +366,14 @@ if ($("#wish-form").length) {
             }
         },
         submitHandler: function (form) {
-            $("#loader").css("display", "inline-block");
+            $("#send-wishes").addClass("send-wishes-loading");
 
             $.ajax({
                 type: "POST",
                 url: "https://wainiidev.online/api/sendemail",
                 data: $(form).serialize(),
                 success: function (res) {
-                    $("#loader").hide();
+                    $("#send-wishes").removeClass("send-wishes-loading");
                     if (res.success) {
                         $('.wish-box').scrollTop(0);
                         $('.wish-box').prepend('<div class="wish-box-item bg"><strong>' + $(form).find("input[name='name']").val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;") + '</strong><p>' + $(form).find("textarea[name='message']").val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;") + '</p></div>');
@@ -391,7 +391,7 @@ if ($("#wish-form").length) {
                     form.reset();
                 },
                 error: function () {
-                    $("#loader").hide();
+                    $("#send-wishes").removeClass("send-wishes-loading");
                     $("#error").slideDown("slow");
                     setTimeout(function () {
                         $("#error").slideUp("slow");
