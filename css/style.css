@@ -181,17 +181,17 @@ textarea {
 
 .hamburger {
 	position: fixed;
-	bottom: 15px;
-	right: 15px;
+	top: 80px;
+	right: 0;
 	width: 36px;
 	height: 36px;
-	border-radius: 50%;
-	border: 1px solid var(--female-color);
+	border: 1px solid #ff0000;
 	display: none;
 	justify-content: center;
 	align-items: center;
 	padding: 5px;
 	z-index: 9999;
+	border-bottom-left-radius: 10px;
 }
 
 .hamburger i {
@@ -3838,9 +3838,9 @@ h2.resp-accordion:first-child {
 	border: 3px solid #fff;
 	clip-path: polygon(-41% 0, 50% 91%, 141% 0);
 	box-shadow:
-		0 30px 25px rgba(255, 255, 0, 0.8),
+		0 30px 25px var(--female-color),
 		/* Ánh sáng vàng phía trên */
-		0 0 20px rgba(255, 255, 0, 0.6);
+		0 0 20px var(--female-color);
 }
 
 
@@ -4521,4 +4521,8 @@ label#content-error {
 	to {
 		stroke-dashoffset: 1050;
 	}
+}
+
+.tag-line p span {
+	letter-spacing: 3px !important;
 }
