@@ -181,11 +181,11 @@ textarea {
 
 .hamburger {
 	position: fixed;
-	top: 80px;
+	top: 82px;
 	right: 0;
 	width: 36px;
 	height: 36px;
-	border: 1px solid #ff0000;
+	border: 1px solid var(--female-color);
 	display: none;
 	justify-content: center;
 	align-items: center;
