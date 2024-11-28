@@ -180,8 +180,24 @@ textarea {
 }
 
 .hamburger {
-	margin-top: 8px;
-	cursor: pointer;
+	position: fixed;
+	bottom: 15px;
+	right: 15px;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	border: 1px solid var(--female-color);
+	display: none;
+	justify-content: center;
+	align-items: center;
+	padding: 5px;
+	z-index: 9999;
+}
+
+.hamburger i {
+	font-size: 18px;
+	color: var(--female-color);
+	font-weight: 400;
 }
 
 .navbar-inverse .navbar-nav>li>a:hover,
@@ -602,6 +618,7 @@ _:-ms-fullscreen,
 	margin-top: 15px;
 	font-size: 40px;
 	font-weight: 500;
+	margin-bottom: 20px;
 }
 
 .page-title h2:before {
@@ -783,9 +800,7 @@ _:-ms-fullscreen,
 	padding-bottom: 60%;
 }
 
-.person-image img{
-	
-}
+.person-image img {}
 
 .the-people-s2 .person-image {
 	width: 100%;
@@ -1407,14 +1422,29 @@ _:-ms-fullscreen,
 	width: 100%;
 	height: 83px;
 	padding: 0px 40px;
+	display: flex;
 }
 
 .logo-s2 {
 	max-width: 100px;
 	width: auto;
 	height: 100%;
-	display: inline-block;
+	display: flex;
+	align-items: center;
 }
+
+.logo-s2>span {
+	font-size: 32px;
+	color: pink;
+	margin: 0 8px;
+	font-family: "Sevillana", cursive;
+}
+
+.logo-s2>i {
+	font-size: 32px;
+	color: rgb(255, 0, 43);
+}
+
 
 .ver-menu,
 .ver-menu-s2 {
@@ -1530,6 +1560,10 @@ _:-ms-fullscreen,
 	.person-image {
 		width: 80% !important;
 		padding-bottom: 80% !important;
+	}
+
+	.hamburger {
+		display: flex;
 	}
 }
 
@@ -1780,7 +1814,9 @@ h2.resp-accordion:first-child {
 }
 
 .couple-name h1 {
-	font-family: "Edu AU VIC WA NT Pre", cursive;
+	font-family: "Sevillana", cursive;
+	font-weight: 400;
+	font-style: normal;
 	font-size: 96px;
 }
 
@@ -2246,6 +2282,7 @@ h2.resp-accordion:first-child {
 	}
 
 	.logo-responsive {
+		width: 100%;
 		padding: 3px 0px;
 	}
 
@@ -2697,6 +2734,10 @@ h2.resp-accordion:first-child {
 }
 
 @media screen and (max-width: 767px) {
+	.pt-page {
+		padding-top: 80px;
+	}
+
 	.main-page-area {
 		height: 100vh;
 	}
@@ -2764,7 +2805,7 @@ h2.resp-accordion:first-child {
 	}
 
 	.tag-line {
-		margin-top: 10px;
+		margin-top: 20px;
 	}
 
 	.tag-line p span {
@@ -2865,11 +2906,11 @@ h2.resp-accordion:first-child {
 	}
 
 	.tag-line {
-		margin-top: 10px;
+		margin-top: 30px;
 	}
 
 	.tag-line p span {
-		font-size: 14px;
+		font-size: 12px;
 	}
 
 	.the-couple-img-s2 img {
@@ -3808,6 +3849,8 @@ h2.resp-accordion:first-child {
 		text-align: center !important;
 		margin: 0 5px;
 		border-radius: 50%;
+		width: 100px !important;
+		height: 100% !important;
 	}
 }
 
@@ -4306,7 +4349,7 @@ label#content-error {
 
 .card-box {
 	box-sizing: border-box;
-	overflow: hidden;
+	position: relative;
 }
 
 .card-box.female {
@@ -4323,6 +4366,46 @@ label#content-error {
 	text-align: center;
 	box-shadow: 0 5px 10px #d3aba0;
 	border-radius: 12px;
+}
+
+.card-box:before {
+	content: '❤';
+	color: #FFF;
+	font-size: 40px;
+	font-weight: bold;
+	position: absolute;
+	top: -28px;
+	left: -20px;
+	transform: rotate(-20deg);
+	-moz-transform: rotate(-20deg);
+	-webkit-transform: rotate(-20deg);
+	-o-transform: rotate(-20deg);
+}
+
+.card-box.female::before,
+.card-box.female::after {
+	text-shadow: 0 0 4px var(--female-color), 0 0 6px var(--female-color), 0 0 4px var(--female-color), 0 0 2px var(--female-color), 0 0 0.5px #FF0000;
+	/* 左上の花の縁取りの色 */
+}
+
+.card-box:after {
+	content: '❤';
+	color: #FFF;
+	font-size: 30px;
+	font-weight: bold;
+	position: absolute;
+	bottom: -20px;
+	right: -11px;
+	transform: rotate(20deg);
+	-moz-transform: rotate(20deg);
+	-webkit-transform: rotate(20deg);
+	-o-transform: rotate(20deg);
+}
+
+.card-box.male::before,
+.card-box.male::after {
+	text-shadow: 0 0 4px var(--male-color), 0 0 6px var(--male-color), 0 0 4px var(--male-color), 0 0 2px var(--male-color), 0 0 0.5px #FF0000;
+	/* 左上の花の縁取りの色 */
 }
 
 
@@ -4347,55 +4430,95 @@ label#content-error {
 
 .send-wishes-loading,
 .send-wishes-loading:after {
-  width: 2.1em;
-  height: 2.1em;
-  border-radius: 50%;
+	width: 2.1em;
+	height: 2.1em;
+	border-radius: 50%;
 }
 
 .send-wishes-loading {
-  -webkit-transition-property: width height padding box-shadow border-width background opacity;
-  transition-property: width height padding box-shadow border-width background opacity;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-in-out;
-          transition-timing-function: ease-in-out;
-  background: transparent;
-  box-shadow: 0 0 0 #006799;
-  border-top: 4px solid #0073aa;
-  border-right: 4px solid #BFE7F3;
-  border-bottom: 4px solid #BFE7F3;
-  border-left: 4px solid #BFE7F3;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-  -webkit-animation: load8 1s infinite linear;
-          animation: load8 1s infinite linear;
-  -webkit-animation-delay: .2s;
-          animation-delay: .2s;
+	-webkit-transition-property: width height padding box-shadow border-width background opacity;
+	transition-property: width height padding box-shadow border-width background opacity;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+	background: transparent;
+	box-shadow: 0 0 0 #006799;
+	border-top: 4px solid #0073aa;
+	border-right: 4px solid #BFE7F3;
+	border-bottom: 4px solid #BFE7F3;
+	border-left: 4px solid #BFE7F3;
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-animation: load8 1s infinite linear;
+	animation: load8 1s infinite linear;
+	-webkit-animation-delay: .2s;
+	animation-delay: .2s;
 }
+
 .send-wishes-loading span {
-  display: none;
+	display: none;
 }
+
 .send-wishes-loading:hover {
-  background: transparent;
+	background: transparent;
 }
 
 @-webkit-keyframes load8 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
 }
+
 @keyframes load8 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+
+.heartbeat-2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.heartbeat-2::before,
+.heartbeat-2::after {
+	content: 'T ♡';
+	font-size: 36px;
+	color: pink;
+	font-family: "Sevillana", cursive;
+}
+
+.heartbeat-2::after {
+	content: '♡ T';
+}
+
+.heartbeat-2 svg {
+	stroke: #ff0000;
+	stroke-width: 2px;
+	fill: none;
+	stroke-dasharray: 150, 200;
+	stroke-dashoffset: 0;
+	animation: heartbeat-2 4s infinite linear;
+	height: 36px;
+}
+
+@keyframes heartbeat-2 {
+	to {
+		stroke-dashoffset: 1050;
+	}
 }
