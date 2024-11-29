@@ -2734,12 +2734,9 @@ h2.resp-accordion:first-child {
 }
 
 @media screen and (max-width: 767px) {
-	.pt-page {
-		padding-top: 80px;
-	}
-
 	.main-page-area {
 		height: 100vh;
+		padding-top: 80px;
 	}
 
 	.navbar-nav {
