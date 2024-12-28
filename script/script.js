@@ -367,37 +367,37 @@ if ($("#wish-form").length) {
         },
         submitHandler: function (form) {
             $("#send-wishes").addClass("send-wishes-loading");
+            alert("Cảm ơn vì đã dành những lời chúc tuyệt vời!");
+            // $.ajax({
+            //     type: "POST",
+            //     url: "https://wainiidev.online/api/sendemail",
+            //     data: $(form).serialize(),
+            //     success: function (res) {
+            //         $("#send-wishes").removeClass("send-wishes-loading");
+            //         if (res.success) {
+            //             $('.wish-box').scrollTop(0);
+            //             $('.wish-box').prepend('<div class="wish-box-item bg"><strong>' + $(form).find("input[name='name']").val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;") + '</strong><p>' + $(form).find("textarea[name='message']").val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;") + '</p></div>');
+            //             $("#success").html("Thank You! Lời chúc đã được gửi thành công!").slideDown("slow");
+            //             setTimeout(function () {
+            //                 $("#success").slideUp("slow");
+            //             }, 5000);
+            //         } else {
+            //             $("#error").html("Cảm ơn đã dành những lời chúc tốt đẹp!").slideDown("slow");
+            //             setTimeout(function () {
+            //                 $("#error").slideUp("slow");
+            //             }, 5000);
+            //         }
 
-            $.ajax({
-                type: "POST",
-                url: "https://wainiidev.online/api/sendemail",
-                data: $(form).serialize(),
-                success: function (res) {
-                    $("#send-wishes").removeClass("send-wishes-loading");
-                    if (res.success) {
-                        $('.wish-box').scrollTop(0);
-                        $('.wish-box').prepend('<div class="wish-box-item bg"><strong>' + $(form).find("input[name='name']").val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;") + '</strong><p>' + $(form).find("textarea[name='message']").val().replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;") + '</p></div>');
-                        $("#success").html("Thank You! Lời chúc đã được gửi thành công!").slideDown("slow");
-                        setTimeout(function () {
-                            $("#success").slideUp("slow");
-                        }, 5000);
-                    } else {
-                        $("#error").html("Cảm ơn đã dành những lời chúc tốt đẹp!").slideDown("slow");
-                        setTimeout(function () {
-                            $("#error").slideUp("slow");
-                        }, 5000);
-                    }
-
-                    form.reset();
-                },
-                error: function () {
-                    $("#send-wishes").removeClass("send-wishes-loading");
-                    $("#error").slideDown("slow");
-                    setTimeout(function () {
-                        $("#error").slideUp("slow");
-                    }, 5000);
-                }
-            });
+            //         form.reset();
+            //     },
+            //     error: function () {
+            //         $("#send-wishes").removeClass("send-wishes-loading");
+            //         $("#error").slideDown("slow");
+            //         setTimeout(function () {
+            //             $("#error").slideUp("slow");
+            //         }, 5000);
+            //     }
+            // });
             return false;
         }
 
